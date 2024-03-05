@@ -1,0 +1,78 @@
+[
+  {
+    "name": "ms-queue",
+    "image": "${image}",
+    "portMappings": [
+      {
+        "containerPort": 80,
+        "hostPort": 80
+      },
+      {
+        "containerPort": 3000,
+        "hostPort": 3000
+      }
+    ],
+    "memory": 300,
+    "networkMode": "awsvpc",
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${log_group}",
+        "awslogs-region": "us-east-1",
+        "awslogs-stream-prefix": "ms-queue"
+      }
+    },
+    "environment": [
+      {
+        "name": "AWS_REGION",
+        "value": "${aws_region}"
+      },
+      {
+        "name": "SECRET_KEY_JWT_TOKEN",
+        "value": "${secret_key_jwt_token}"
+      },
+      {
+        "name": "PORT",
+        "value": "3000"
+      },
+      {
+        "name": "AWS_SESSION_TOKEN",
+        "value": "${session_token_aws}"
+      },
+      {
+        "name": "AWS_ACCESS_KEY",
+        "value": "${access_key_aws}"
+      },
+      {
+        "name": "AWS_SECRET",
+        "value": "${secret_aws}"
+      },
+      {
+        "name": "AWS_OUTPUT_QUEUE_URL",
+        "value": "${output_sqs_url}"
+      },
+      {
+        "name": "AWS_INPUT_QUEUE_URL",
+        "value": "${input_sqs_url}"
+      },
+      {
+        "name": "MSG_POLLING_INTERVAL",
+        "value": "${sqs_polling_interval}"
+      },
+      {
+        "name": "AWS_MESSAGE_GROUP",
+        "value": "${sqs_message_group}"
+      }
+    ],
+    "healthCheck": {
+      "command": [
+        "CMD-SHELL",
+        "curl -f http://localhost:3000/api-docs/#/ || exit 1"
+      ],
+      "interval": 30,
+      "timeout": 5,
+      "retries": 3,
+      "startPeriod": 60
+    }
+  }
+]
