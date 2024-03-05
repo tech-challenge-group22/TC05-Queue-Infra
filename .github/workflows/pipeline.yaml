@@ -16,7 +16,7 @@ jobs:
       TF_VAR_sqs_polling_interval: ${{ vars.TF_VAR_SQS_POLLING_INTERVAL }}
       TF_VAR_sqs_message_group: ${{ vars.TF_VAR_SQS_MESSAGE_GROUP }}
       TF_VAR_input_sqs_url: ${{ vars.TF_VAR_INPUT_SQS_URL }}
-      TF_VAR_secret_key_jwt_token: ${{ secrets.TF_VAR_secret_key_jwt_token }}
+      TF_VAR_secret_key_jwt_token: ${{ secrets.TF_VAR_SECRET_KEY_JWT_TOKEN }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3

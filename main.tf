@@ -7,12 +7,11 @@ locals {
 
 provider "aws" {
   region  = "${var.region}"
-  profile = "lab"
 }
 
 terraform {
   backend "s3" {
-    bucket         = "tc04-tfstate-queue"
+    bucket         = "tc05-tfstate-queue"
     key            = "terraform.tfstate"
     region         = "us-east-1"
   }
