@@ -11,13 +11,6 @@ resource "aws_cloudwatch_log_group" "queue" {
 }
 
 /*====
-ECR repository to store our Docker images
-======*/
-resource "aws_ecr_repository" "queue_app" {
-  name = "${var.repository_name}"
-}
-
-/*====
 ECS cluster
 ======*/
 resource "aws_ecs_cluster" "cluster" {
@@ -32,7 +25,7 @@ resource "aws_ecs_task_definition" "web" {
   family                 = "${var.prefix}_web"
   # "${file("${path.module}/tasks/web_task_definition.json"
   container_definitions  = templatefile("${path.module}/tasks/web_task_definition.json", {
-    image                = "${aws_ecr_repository.queue_app.repository_url}"
+    image                = "${var.ecr_url}"
     log_group            = "${aws_cloudwatch_log_group.queue.name}"
     aws_region           = "us-east-1"
     session_token_aws    = "${var.session_token_aws}"

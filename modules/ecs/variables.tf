@@ -24,10 +24,6 @@ variable "public_subnet_ids" {
   description = "The private subnets to use"
 }
 
-variable "repository_name" {
-  description = "The name of the repisitory"
-}
-
 variable "execution_arn_role" {
   description = "arn of execution role"
 }
@@ -59,4 +55,7 @@ variable sqs_message_group {
 }
 
 variable secret_key_jwt_token {
+}
+
+variable "ecr_url" {
 }
