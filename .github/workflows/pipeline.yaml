@@ -19,7 +19,7 @@ jobs:
       TF_VAR_sqs_polling_interval: ${{ vars.TF_VAR_SQS_POLLING_INTERVAL }}
       TF_VAR_sqs_message_group: ${{ vars.TF_VAR_SQS_MESSAGE_GROUP }}
       TF_VAR_order_received: ${{ vars.TF_VAR_ORDER_RECEIVED }}
-      TF_VAR_order_queue_finished: ${{ vars.TF_VAR_ORDER_QUEUE_FINISHED }}
+      TF_VAR_QUEUE_FINISHED: ${{ vars.TF_VAR_QUEUE_FINISHED }}
       TF_VAR_secret_key_jwt_token: ${{ secrets.TF_VAR_SECRET_KEY_JWT_TOKEN }}
     steps:
       - name: Checkout Repo
@@ -39,7 +39,7 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
-          terraform init
+          terraform init -backend-config="bucket=${{vars.TF_VAR_TFSTATE_QUEUE}}" -backend-config="key=terraform.tfstate" -backend-config="region=${{ secrets.AWS_REGION }}"
         
       - name: Terraform Plan
         run: terraform plan
