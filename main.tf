@@ -36,6 +36,9 @@ module sqs {
   source = "./modules/sqs"
 }
 
+module ecr {
+  source = "./modules/ecr"
+}
 
 module "ecs" {
   source              = "./modules/ecs"
