@@ -49,11 +49,11 @@
       },
       {
         "name": "AWS_OUTPUT_QUEUE_URL",
-        "value": "${output_sqs_url}"
+        "value": "${order_queue_finished}"
       },
       {
         "name": "AWS_INPUT_QUEUE_URL",
-        "value": "${input_sqs_url}"
+        "value": "${order_received}"
       },
       {
         "name": "MSG_POLLING_INTERVAL",

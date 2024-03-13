@@ -22,7 +22,10 @@ variable "secret_aws" {
   description = "AWS session token"
 }
 
-variable "input_sqs_url" {
+variable "order_received" {
+}
+
+variable "order_queue_finished" {
 }
 
 variable "sqs_message_group" {

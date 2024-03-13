@@ -32,10 +32,6 @@ module dynamo {
   source = "./modules/dynamo"
 }
 
-module sqs {
-  source = "./modules/sqs"
-}
-
 module ecr {
   source = "./modules/ecr"
 }
@@ -55,8 +51,8 @@ module "ecs" {
   access_key_aws       = "${var.access_key_aws}"
   secret_aws           = "${var.secret_aws}"
   execution_arn_role   = "${var.lab_role_arn}"
-  output_sqs_url       = "${module.sqs.output_sqs_url}"
-  input_sqs_url        = "${var.input_sqs_url}"
+  order_queue_finished       = "${var.order_queue_finished}"
+  order_received        = "${var.order_received}"
   sqs_message_group    = "${var.sqs_message_group}"
   sqs_polling_interval = "${var.sqs_polling_interval}"
   secret_key_jwt_token = "${var.secret_key_jwt_token}"

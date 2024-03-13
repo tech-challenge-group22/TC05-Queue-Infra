@@ -40,11 +40,11 @@ variable "secret_aws" {
   description = "AWS session token"
 }
 
-variable "output_sqs_url" {
+variable "order_queue_finished" {
   description = "SQS Payment response"
 }
 
-variable input_sqs_url {
+variable order_received {
   description = "SQS url to receive events"
 }
 
