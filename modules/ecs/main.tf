@@ -31,7 +31,7 @@ resource "aws_ecs_task_definition" "web" {
     session_token_aws    = "${var.session_token_aws}"
     access_key_aws       = "${var.access_key_aws}"
     secret_aws           = "${var.secret_aws}"
-    order_queue_finished       = "${var.order_queue_finished}"
+    queue_finished       = "${var.queue_finished}"
     order_received        = "${var.order_received}"
     sqs_polling_interval = "${var.sqs_polling_interval}"
     sqs_message_group    = "${var.sqs_message_group}"

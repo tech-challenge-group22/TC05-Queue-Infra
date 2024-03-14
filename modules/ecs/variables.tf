@@ -40,7 +40,7 @@ variable "secret_aws" {
   description = "AWS session token"
 }
 
-variable "order_queue_finished" {
+variable "queue_finished" {
   description = "SQS Payment response"
 }
 

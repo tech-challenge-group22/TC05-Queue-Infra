@@ -25,7 +25,7 @@ variable "secret_aws" {
 variable "order_received" {
 }
 
-variable "order_queue_finished" {
+variable "queue_finished" {
 }
 
 variable "sqs_message_group" {

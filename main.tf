@@ -48,7 +48,7 @@ module "ecs" {
   access_key_aws       = "${var.access_key_aws}"
   secret_aws           = "${var.secret_aws}"
   execution_arn_role   = "${var.lab_role_arn}"
-  order_queue_finished       = "${var.order_queue_finished}"
+  queue_finished       = "${var.queue_finished}"
   order_received        = "${var.order_received}"
   sqs_message_group    = "${var.sqs_message_group}"
   sqs_polling_interval = "${var.sqs_polling_interval}"
